@@ -1,0 +1,14 @@
+.curr-menu{
+    padding:0 10px;
+    text-align: center;
+}
+.curr-menu h2{
+    color:rgb(148, 146, 146);
+}
+.add-item-form{
+    padding: 0 30px;
+   
+}
+.menu-Container{
+    padding:0 50px;
+}

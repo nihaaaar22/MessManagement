@@ -1,0 +1,12 @@
+.nav{
+    display:flex;
+    justify-content: center;
+    font-family: ui-serif;
+    margin:15px;
+    
+
+
+}
+.nav h1{
+    color:#c6914f;
+}
