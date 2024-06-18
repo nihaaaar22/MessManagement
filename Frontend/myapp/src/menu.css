@@ -1,12 +1,14 @@
 .curr-menu{
-    padding:0 10px;
+    padding:0 40px;
     text-align: center;
 }
 .curr-menu h2{
     color:rgb(148, 146, 146);
 }
 .add-item-form{
-    padding: 0 30px;
+    padding: 20px 40px;
+    background-color: antiquewhite;
+    border-radius: 15px;
    
 }
 .menu-Container{
