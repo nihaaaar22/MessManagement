@@ -1,3 +1,8 @@
-const router = express.router()
+const express= require('express')
+const router = express.Router()
+const authController = require('../controllers/authController');
 
-router.post('/login',auth)
+router.post('/login',authController.login);
+router.post('/register',authController.register);
+
+module.exports = router

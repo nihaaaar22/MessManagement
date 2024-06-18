@@ -1,1 +1,1 @@
-//menu schema contains list of items, date
+//menu schema contains list of items, timestamp
