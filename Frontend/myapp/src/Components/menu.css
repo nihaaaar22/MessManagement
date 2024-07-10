@@ -12,5 +12,8 @@
    
 }
 .menu-Container{
-    padding:0 50px;
+    padding: 60px 50px;
+    width: 80%;
+    min-width: 700px;
+    margin: auto;
 }

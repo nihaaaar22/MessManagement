@@ -1,0 +1,36 @@
+.user-menu {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width:50%;
+    margin:auto;
+    min-width: 530px;
+  }
+  
+  .user-menu h2 {
+    color: #343a40;
+  }
+  
+  .table-borderless th,
+  .table-borderless td {
+    border: none;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quantity {
+    min-width: 20px;
+    text-align: center;
+  }
+  
+  thead.thead-light th {
+    background-color: #e9ecef;
+    color: #495057;
+  }
+  

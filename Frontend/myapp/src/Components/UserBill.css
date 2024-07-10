@@ -1,0 +1,29 @@
+.user-bill {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width:50%;
+    min-width: 530px;
+    margin:auto;
+  }
+  
+  .user-bill h2 {
+    color: #343a40;
+  }
+  
+  .bill-table th, .bill-table td {
+    border: none;
+  }
+  
+  .total-amount h4 {
+    font-weight: bold;
+    color: #343a40;
+  }
+  
+  .total-amount .total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  

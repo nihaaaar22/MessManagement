@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import './menu.css'
 
+
 const CurrentMenu = () => {
+  
   const [menuItems, setMenuItems] = useState([
     { id: 1, name: 'Spaghetti', price: 12.99,  },
     { id: 2, name: 'Caesar Salad', price: 8.99 },
@@ -11,29 +13,29 @@ const CurrentMenu = () => {
 
   const [newItem, setNewItem] = useState({ name: '', price: '' });
 
-  useEffect(() => {
-    async function sendMenuToBackend() {
-      try {
-        const response = await fetch('/api/menu', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(menuItems)
-        });
+  // useEffect(() => {
+  //   async function sendMenuToBackend() {
+  //     try {
+  //       const response = await fetch('/api/menu', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json'
+  //         },
+  //         body: JSON.stringify(menuItems)
+  //       });
   
-        if (!response.ok) {
-          throw new Error('Failed to send menu to backend');
-        }
+  //       if (!response.ok) {
+  //         throw new Error('Failed to send menu to backend');
+  //       }
   
-        console.log('Menu sent to backend successfully');
-      } catch (error) {
-        console.error(error);
-      }
-    }
+  //       console.log('Menu sent to backend successfully');
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
   
-    sendMenuToBackend();
-  }, [menuItems]);
+  //   sendMenuToBackend();
+  // }, [menuItems]);
 
   
  
@@ -67,10 +69,11 @@ const CurrentMenu = () => {
   return (
     <div className="Container menu-Container">
       <div className="row">
-        <h1>Menu</h1>
+        
 
-    <div className="col-8 curr-menu">
+    <div className="col-md-8 col-lg-8 col-sm-12 curr-menu">
       <h2>Today's Menu</h2>
+      
       <table className="menu-tbl table table-striped">
         <thead>
           <tr>
@@ -111,7 +114,7 @@ const CurrentMenu = () => {
 
 
      
-      <div className="col-4 add-item-form">
+      <div className="col-md-4 col-lg-4 col-sm-12 add-item-form">
         <h4>Add New Item</h4>
         <div className="form-group">
           <label>Item Name</label>
@@ -119,10 +122,11 @@ const CurrentMenu = () => {
             type="text"
             className="form-control"
             name="name"
+            min="5"
             
             onChange={handleChange}
           />
-          <h2>{newItem.name}</h2>
+          
         </div>
         <div className="form-group">
           <label>Price</label>
@@ -130,6 +134,7 @@ const CurrentMenu = () => {
             type="number"
             className="form-control"
             name="price"
+            min
             
             onChange={handleChange}
           />

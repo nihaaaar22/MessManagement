@@ -1,5 +1,5 @@
-import OrderTable from "../OrdersTable";
-import CurrentMenu from "../menu";
+import OrderTable from "../Components/OrdersTable";
+import CurrentMenu from "../Components/menu";
 
 export default function Dashboard(){
     return(<><OrderTable></OrderTable>

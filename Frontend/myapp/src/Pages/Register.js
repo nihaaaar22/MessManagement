@@ -1,6 +1,6 @@
 
 
-import { json, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Register.css';
 
 import { useState } from 'react';
@@ -73,7 +73,9 @@ let response = await fetch('http://localhost:5500/auth/register', {
   };
 
 
-    return(<section class="vh-100" >
+    return(
+
+    <section class="vh-100" >
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
@@ -89,16 +91,14 @@ let response = await fetch('http://localhost:5500/auth/register', {
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                            <input type="text" name="username" id="form3Example1c" class="form-control" onChange={handleChange} />
-                            <label class="form-label" for="form3Example1c">Your Name</label>
+                            <input type="text" name="username" id="form3Example1c" placeholder='username' class="form-control" onChange={handleChange} />
                           </div>
                         </div>
       
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                            <input type="text" name="mobno"id="form3Example3c" class="form-control" onChange={handleChange} />
-                            <label class="form-label" for="form3Example3c">Mobile No</label>
+                            <input type="text" name="mobno"id="form3Example3c" class="form-control" placeholder='mobileno' onChange={handleChange} />
                           </div>
                         </div>
 
@@ -108,16 +108,14 @@ let response = await fetch('http://localhost:5500/auth/register', {
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                            <input type="password" name="password" id="form3Example4c" class="form-control" onChange={handleChange} />
-                            <label class="form-label" for="form3Example4c">Password</label>
+                            <input type="password" name="password" id="form3Example4c" class="form-control" placeholder='Password' onChange={handleChange} />
                           </div>
                         </div>
       
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                            <input type="password" name="repassword" id="form3Example4cd" class="form-control" onChange={handleChange}/>
-                            <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                            <input type="password" name="repassword" id="form3Example4cd" class="form-control" placeholder='repeat your password' onChange={handleChange}/>
                           </div>
                         </div>
       
@@ -151,5 +149,7 @@ let response = await fetch('http://localhost:5500/auth/register', {
             </div>
           </div>
         </div>
-      </section>)
+      </section>
+      
+    )
 }
