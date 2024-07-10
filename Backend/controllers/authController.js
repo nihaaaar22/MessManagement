@@ -4,13 +4,13 @@
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
+
 // const User = require('../models/userModel');
 
 exports.register = async (req, res) => {
     console.log("register method is getting executed")
-    
 
-  
   try {
 
     const {username, mobno, password,repassword} = req.body;
@@ -22,29 +22,32 @@ exports.register = async (req, res) => {
 
     const role = "customer";
     const hashedPassword = await bcrypt.hash(password, 12);
-
+    
     // const user = new User({ username,mobno, password: hashedPassword, role });
    // await user.save();
 
     res.status(201).json({ message: 'User registered successfully' });
-    console.log(`User with ${username} and mobile no: ${mobno} saved`)
+    console.log(`User with ${username} and mobile no: ${mobno} saved`);
 
-  } catch (error) {
+  }
+  catch (error) {
     console.log("error")
   }
 
 };
 
 
+
 exports.login = async (req, res) => {
   try {
     const { mobno, password } = req.body;
+    let secretKey = process.env.JWT_TOKEN;
 
     const user = await User.findOne({mobno});
     if (!user || !bcrypt.compare(password, user.password)) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
-    const token = jwt.sign({ id: user._id, role: user.role }, 'secretKey', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user._id, role: user.role }, secretKey, { expiresIn: '1h' });
     res.json({ token }); //this method converts json to string instead of seperately using JSON.stringify();
   } catch (error) {
     

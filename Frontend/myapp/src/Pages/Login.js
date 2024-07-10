@@ -9,9 +9,12 @@ export default function LoginForm(){
             {...form,[name]:value}
         )
     }
-    function handleSubmit(event){
+    async function handleSubmit(event){
         event.preventDefault();
         alert(form.mobno+form.password);
+        let response = fetch()
+
+
 
     }
 

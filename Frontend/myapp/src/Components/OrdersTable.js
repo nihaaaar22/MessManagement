@@ -10,8 +10,7 @@ export default function OrderTable(){
     id:1, timestamp:"3:30", orderby:"admin",items:["paneer","sandwhich"],done:false
   },{
     id:2, timestamp:"3:45", orderby:"sahil",items:["kofta","dahi"],done:false
-  }
-    
+  }  
   ])
 
   function handleCheckboxChange(id){
@@ -26,9 +25,7 @@ export default function OrderTable(){
             order.id === id ? { ...order, done: !order.done } : order
           
         )
-    );
-    
-  };
+      )};
 
 
 
