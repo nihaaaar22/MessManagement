@@ -3,22 +3,22 @@
 
 const express = require('express');
 const router = express.Router();
-const adminController = require('../controllers/adminController');
 
+const {getMenuItem,createMenuItem,updateMenuItem,deleteMenuItem,getOrders,updateOrder,deleteOrder,getUsers,updateUser,deleteUser} =require('../controllers/adminController')
 // Menu routes
-router.post('/menu', adminController.createMenuItem);
-router.get('/menu', adminController.getMenuItems);
-router.put('/menu/:id', adminController.updateMenuItem);
-router.delete('/menu/:id', adminController.deleteMenuItem);
+router.post('/menu', createMenuItem);
+router.get('/menu', getMenuItem);
+router.put('/menu/:id', updateMenuItem);
+router.delete('/menu/:id', deleteMenuItem);
 
 // Order routes
-router.get('/orders', adminController.getOrders);
-router.put('/orders/:id', adminController.updateOrder);
-router.delete('/orders/:id', adminController.deleteOrder);
+router.get('/orders', getOrders);
+router.put('/orders/:id', updateOrder);
+router.delete('/orders/:id', deleteOrder);
 
 // User routes
-router.get('/users', adminController.getUsers);
-router.put('/users/:id', adminController.updateUser);
-router.delete('/users/:id', adminController.deleteUser);
+router.get('/users', getUsers);
+router.put('/users/:id', updateUser);
+router.delete('/users/:id', deleteUser);
 
 module.exports = router;
