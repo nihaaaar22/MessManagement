@@ -1,14 +1,16 @@
-const Menu = require('../models/Menu');
-const Order = require('../models/Order');
-const User = require('../models/User');
+const mongoose=require('mongoose');
+const Menu=require('../models/menuModel');
+const User=require('../models/userModel')
+const Order=require('../models/orderModel')
 
 // Get all menu items
 exports.getMenuItems = async (req, res) => {
   try {
-    const menuItems = await Menu.find();
+    const { id } = req.params;
+    const menuItems = await Menu.find({ _id: id });
     res.status(200).json(menuItems);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: "Did not find any menu items for the provided id." });
   }
 };
 

@@ -3,7 +3,7 @@
 const Menu=require("../models/menuModel");
 
 //creating menu 
-exports.createMenu=async(req,res)=>{
+const createMenuItem=async(req,res)=>{
     try{
         const menuItem=new Menu(req.body);
         await menuItem.save();
@@ -14,16 +14,16 @@ exports.createMenu=async(req,res)=>{
        });
     }
 };
-exports.getMenu = async (req, res) => {
-    try {
-      const menuItems = await Menu.find();
-      res.status(200).json(menuItems);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
+const getMenuItem = async (req, res) => {
+  try {
+    const {id}=req.params.id;
+    const menuItems = await Menu.find({_id:id});
+    res.status(200).json(menuItems);
+  } catch (error) {
+    res.status(400).json({ message: "Did not find any menu items for the provided id." });
+  }
 };
-  
-exports.updateMenuItem = async (req, res) => {
+const updateMenuItem = async (req, res) => {
     try {
       const menuItem = await Menu.findByIdAndUpdate(req.params.id, req.body, { new: true });
       res.status(200).json(menuItem);
@@ -32,7 +32,7 @@ exports.updateMenuItem = async (req, res) => {
     }
 };
   
-exports.deleteMenuItem = async (req, res) => {
+const deleteMenuItem = async (req, res) => {
     try {
       await Menu.findByIdAndDelete(req.params.id);
       res.status(204).json({ message: 'Menu item deleted' });
@@ -45,7 +45,7 @@ exports.deleteMenuItem = async (req, res) => {
 
 
 //order
-exports.getOrders = async (req, res) => {
+const getOrders = async (req, res) => {
     try {
       const orders = await Order.find().populate('user').populate('menuItems');
       res.status(200).json(orders);
@@ -54,7 +54,7 @@ exports.getOrders = async (req, res) => {
     }
   };
   
-  exports.updateOrder = async (req, res) => {
+const updateOrder = async (req, res) => {
     try {
       const order = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true });
       res.status(200).json(order);
@@ -63,7 +63,7 @@ exports.getOrders = async (req, res) => {
     }
   };
   
-  exports.deleteOrder = async (req, res) => {
+const deleteOrder = async (req, res) => {
     try {
       await Order.findByIdAndDelete(req.params.id);
       res.status(204).json({ message: 'Order deleted' });
@@ -73,7 +73,7 @@ exports.getOrders = async (req, res) => {
   };
   
   // User CRUD
-  exports.getUsers = async (req, res) => {
+const getUsers = async (req, res) => {
     try {
       const users = await User.find();
       res.status(200).json(users);
@@ -82,7 +82,7 @@ exports.getOrders = async (req, res) => {
     }
   };
   
-  exports.updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
     try {
       const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
       res.status(200).json(user);
@@ -90,8 +90,7 @@ exports.getOrders = async (req, res) => {
       res.status(400).json({ message: error.message });
     }
   };
-  
-  exports.deleteUser = async (req, res) => {
+const deleteUser = async (req, res) => {
     try {
       await User.findByIdAndDelete(req.params.id);
       res.status(204).json({ message: 'User deleted' });
@@ -100,3 +99,6 @@ exports.getOrders = async (req, res) => {
     }
   };
   
+module.exports={
+  createMenuItem,getMenuItem,deleteMenuItem,updateMenuItem,deleteOrder,getOrders,updateOrder,getUsers,updateUser,deleteUser
+}
