@@ -3,6 +3,7 @@
 
 const mongoose=require("mongoose");
 
+//username, mobno, password: hashedPassword, role
 const  userSchema=new mongoose.Schema(
     {
         username:{
@@ -13,18 +14,19 @@ const  userSchema=new mongoose.Schema(
         password:{
             type:String,
             required:true,
-            maxLength:30
+            maxLength:120
         },
-        phoneNumber:{
+        mobno:{
            type:Number,
            required:true,
            maxLength:10
         },
-        address:{
+        role:{
             type:String,
             required:true,
             maxlength:50
         }
+
     }
 )
 
