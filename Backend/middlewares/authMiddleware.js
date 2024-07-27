@@ -9,8 +9,10 @@ const authMiddleware =(req,res,next)=>{
     const secretToken = process.env.JWT_TOKEN;
 
 
-    if(!token){res.status(401).json({message:"no token found"})
-    return;}
+    if(!token){
+    res.status(401).json({message:"no token found"})
+    return;
+}
 
     let decoded = jwt.verify(token,secretToken);
 

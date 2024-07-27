@@ -28,7 +28,7 @@ connectDb();
 // Middleware
 app.use(express.json());
 app.use('/auth', authRoutes);
-app.use('/hello',(req,res)=>{
+app.use('/hello',(req,res) => {
     res.send("hello world")
 })
 app.use('/customer', authMiddleware, customerRoutes);

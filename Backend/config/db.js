@@ -4,7 +4,8 @@ const dotenv=require('dotenv')
 dotenv.config()
 
 //mongodb://localhost:27017/
-const connectDb=async()=>{
+const connectDb=async()=>
+    {
     try{
         await mongoose.connect(process.env.DATABASE_URL);
         console.log("Mongodb connected");
